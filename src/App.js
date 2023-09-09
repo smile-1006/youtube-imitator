@@ -16,9 +16,20 @@ import VideoDetails from "./components/VideoDetails"
 
 const App = () => {
   return (
-    <AppContext><div>
-      hello 
-    </div></AppContext>
+    <AppContext>
+      <BrowserRouter>
+        <div>
+          <Header/>
+          <SearchResult/>
+          <Routes>
+            {/* exact : to start the page from the starting of the url */}
+            <Route path="/" exact element={<Feed/>}/>
+            <Route path="/searchResult/:searchQuery" element={<SearchResult/>}/>
+            <Route path="/video/:id" element={<VideoDetails/>}/>
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </AppContext>
   )
 }
 
