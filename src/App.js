@@ -20,7 +20,7 @@ const App = () => {
       <BrowserRouter>
         <div>
           <Header/>
-          <SearchResult/>
+          
           <Routes>
             {/* exact : to start the page from the starting of the url */}
             <Route path="/" exact element={<Feed/>}/>
