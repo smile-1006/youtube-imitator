@@ -14,13 +14,30 @@ import Loader from "../shared/loader";
 
 const Header = () => {
     // creating states
-    
+    const [searchQuery, setSearchQuery] = useState("");
 
-return (
-    <div>
-        header
-    </div>
-)
+    const {loading, mobileMenu, setMobileMenu} = useContext(context);
+
+    const navigate = useNavigate();
+
+    const searchQueryHandler = (event) => {
+        if((event?.key === "Enter" || event === "searchButton") && searchQuery?.lenght>0){
+            navigate(`/searchResult/${searchQuery}`);
+        }
+    }
+
+    const mobileMenuToggle = () => {
+        setMobileMenu(!mobileMenu);
+    }
+
+    const {pathname} = useLocation();
+    const pageName = pathname?.split("/")?.filter(Boolean)?.[0]
+
+    return (
+        <div>
+            header
+        </div>
+    )
 }
 
 export default Header
