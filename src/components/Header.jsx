@@ -1,4 +1,6 @@
-import React from 'react'
+import React, {useContext, useState} from 'react';
+import {Link,useLocation,useNavigate} from "react-router-dom"
+
 
 import ytLogo from "../images/yt-logo.png";
 import ytLogoMobile from "../images/yt-logo-mobile.png";
@@ -43,6 +45,15 @@ const Header = () => {
                         {mobileMenu ? (<CgClose className='text-white text-xl'/>): (<SlMenu className='text-white text-xl'/>)}
                     </div>
                 )}
+                <Link to="/" className='flex h-5 items-center'>
+                <image className='h-full hidden dark:md:block' src={ytLogo} alt="Youtube"/>
+                <image className='h-full md:hidden' src={ytLogoMobile} alt ="YouTube"/>
+                </Link>
+                <div className="group flex items-center">
+                    <div className='flex h-8 md:h-10 md:pl-5 border-[#303030] rounded-l-3xl group-focus-within:border-blue-500 md:group-focus-within:ml-5 md:group-focus-within:pl-0'>
+                        <div className='x-10'></div>
+                    </div>
+                </div>
             </div>
 
         </div>
